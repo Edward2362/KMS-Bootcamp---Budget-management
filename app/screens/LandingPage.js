@@ -1,5 +1,11 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View, Button, Text } from "react-native";
+import {
+	ImageBackground,
+	StyleSheet,
+	View,
+	TouchableHighlight,
+	Text,
+} from "react-native";
 
 function LandingPage(props) {
 	return (
@@ -11,25 +17,32 @@ function LandingPage(props) {
 				<Text>Budget Management</Text>
 			</View>
 			<View style={styles.navs}>
-				<Button
-					style={styles.nav}
-					title="Go to Jane's profile"
+				<TouchableHighlight
 					onPress={() => props.navigation.navigate("Sync")}
-				/>
-				{/* <Button
 					style={styles.nav}
-					title="Go to Jane's profile"
-					onPress={() =>
-						props.navigation.navigate("Profile", { name: "Jane" })
-					}
-				/>
-				<Button
+				>
+					<View style={styles.nav}>
+						<Text style={styles.navText}>
+							Synchronize E-commerce
+						</Text>
+					</View>
+				</TouchableHighlight>
+				<TouchableHighlight
+					onPress={() => props.navigation.navigate("Sync")}
 					style={styles.nav}
-					title="Go to Jane's profile"
-					onPress={() =>
-						props.navigation.navigate("Profile", { name: "Jane" })
-					}
-				/> */}
+				>
+					<View style={styles.nav}>
+						<Text style={styles.navText}>Add transaction</Text>
+					</View>
+				</TouchableHighlight>
+				<TouchableHighlight
+					onPress={() => props.navigation.navigate("Sync")}
+					style={styles.nav}
+				>
+					<View style={styles.nav}>
+						<Text style={styles.navText}>View transaction</Text>
+					</View>
+				</TouchableHighlight>
 			</View>
 		</ImageBackground>
 	);
@@ -39,19 +52,23 @@ const styles = StyleSheet.create({
 	background: {
 		flex: 1,
 	},
-	appTitle: { flex: 1, justifyContent: "center", alignItems: "center" },
+	appTitle: { flex: 1.5, justifyContent: "center", alignItems: "center" },
 	navs: {
 		flex: 2,
 		justifyContent: "space-evenly",
 		alignItems: "center",
 	},
 	nav: {
-		height: "15%",
-		width: "50%",
-		backgroundColor: "powderblue",
+		height: 70,
+		width: 200,
+		backgroundColor: "steelblue",
 		justifyContent: "center",
 		alignItems: "center",
-		borderRadius: 20,
+		borderRadius: 50,
+	},
+	navText: {
+		color: "skyblue",
+		fontWeight: "bold",
 	},
 	// nav1: { flex: 1, width: "50%", height: "50%", backgroundColor: "#fff" },
 	// nav2: { flex: 1, width: "50%", height: "50%", backgroundColor: "#000" },
