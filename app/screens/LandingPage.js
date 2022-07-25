@@ -28,7 +28,7 @@ function LandingPage(props) {
 					</View>
 				</TouchableHighlight>
 				<TouchableHighlight
-					onPress={() => props.navigation.navigate("Sync")}
+					onPress={() => props.navigation.navigate("AddTransaction")}
 					style={styles.nav}
 				>
 					<View style={styles.nav}>

@@ -17,6 +17,7 @@ export default function App() {
 					options={{ headerShown: false }}
 				/>
 				<Stack.Screen name="Sync" component={SyncEAPage} />
+				<Stack.Screen name="AddTransaction" component={AddTransaction} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
