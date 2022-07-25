@@ -3,15 +3,13 @@ import {
 	StyleSheet,
 	TextInput,
 	View,
-	Button,
+	Image,
 	Text,
-	TouchableHighlight,
+	TouchableOpacity,
 } from "react-native";
 
 function SyncEAPage(props) {
 	const [thirdPartyAcc, setThirdPartyAcc] = useState("");
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
 
 	return (
 		<View style={styles.background}>
@@ -19,63 +17,48 @@ function SyncEAPage(props) {
 				<Text>Add new E-commerce account</Text>
 			</View>
 			<View style={styles.body}>
-				<TextInput
-					style={styles.input}
-					onChangeText={setUsername}
-					value={username}
-					placeholder="Username"
-					keyboardType="default"
-				/>
-				<TextInput
-					style={styles.input}
-					onChangeText={setPassword}
-					value={password}
-					placeholder="Password"
-					keyboardType="default"
-					secureTextEntry={true}
-				/>
-				<TouchableHighlight style={styles.submit}>
-					<View style={styles.submitView}>
-						<Text style={styles.submitText}>
-							Synchronize E-commerce
-						</Text>
-					</View>
-				</TouchableHighlight>
+				<View style={styles.container}>
+					<TouchableOpacity
+						onPress={() => props.navigation.navigate("SyncRequest")}
+						style={styles.option}
+					>
+						<Image source={require("../assets/Shopee.png")}></Image>
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => props.navigation.navigate("SyncRequest")}
+						style={styles.option}
+					>
+						<Image source={require("../assets/Tiki.png")}></Image>
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => props.navigation.navigate("SyncRequest")}
+						style={styles.option}
+					>
+						<Image source={require("../assets/Amazon.png")}></Image>
+					</TouchableOpacity>
+				</View>
 			</View>
 		</View>
 	);
 }
 const styles = StyleSheet.create({
-	background: { flex: 1 },
-	title: { flex: 1, justifyContent: "center", alignItems: "center" },
-	body: { flex: 1, justifyContent: "center", alignItems: "center" },
-	input: {
-		width: "80%",
-		height: 40,
-		margin: 12,
-		borderWidth: 1,
-		padding: 10,
-	},
-	submit: {
-		width: "80%",
-		height: 40,
-		margin: 12,
-		paddingTop: 10,
-		paddingBottom: 10,
-		backgroundColor: "steelblue",
+	background: { flex: 1, width: "100%" },
+	title: {
+		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
 	},
-	submitView: {
+	body: {
+		flex: 2,
+		alignItems: "center",
 		width: "100%",
-		height: 40,
-		backgroundColor: "steelblue",
-		justifyContent: "center",
-		alignItems: "center",
 	},
-	submitText: {
-		color: "#fff",
-		fontWeight: "bold",
+	container: { width: "100%", flexDirection: "row", flexWrap: "wrap" },
+	option: {
+		borderRadius: 40,
+		width: "50%",
+		alignItems: "center",
+		marginTop: 20,
 	},
 });
 export default SyncEAPage;

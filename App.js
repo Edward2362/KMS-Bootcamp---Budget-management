@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SyncEAPage from "./app/screens/SyncEAPage";
 import AddTransPage from "./app/screens/AddTransPage";
 import ViewTransPafe from "./app/screens/ViewTransPafe";
+import SyncRequestPage from "./app/screens/SyncRequestPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
 					options={{ headerShown: false }}
 				/>
 				<Stack.Screen name="Sync" component={SyncEAPage} />
+				<Stack.Screen name="SyncRequest" component={SyncRequestPage} />
 				<Stack.Screen name="AddTrans" component={AddTransPage} />
 				<Stack.Screen name="ViewTrans" component={ViewTransPafe} />
 			</Stack.Navigator>

@@ -11,8 +11,8 @@ import {
 function AddTransPage(props) {
 	const [thirdPartyAcc, setThirdPartyAcc] = useState("");
 	const [description, setDescription] = useState("");
+	const [quantity, setQuantity] = useState("");
 	const [price, setPrice] = useState("");
-	const [date, setDate] = useState("");
 
 	return (
 		<View style={styles.background}>
@@ -29,6 +29,13 @@ function AddTransPage(props) {
 				/>
 				<TextInput
 					style={styles.input}
+					onChangeText={setQuantity}
+					value={quantity}
+					placeholder="Quantity"
+					keyboardType="numeric"
+				/>
+				<TextInput
+					style={styles.input}
 					onChangeText={setPrice}
 					value={price}
 					placeholder="Price"
@@ -40,7 +47,7 @@ function AddTransPage(props) {
 				>
 					<View style={styles.submitView}>
 						<Text style={styles.submitText}>
-							Synchronize E-commerce
+							Submit
 						</Text>
 					</View>
 				</TouchableHighlight>
