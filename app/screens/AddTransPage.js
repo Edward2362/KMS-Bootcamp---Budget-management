@@ -8,33 +8,36 @@ import {
 	TouchableHighlight,
 } from "react-native";
 
-function SyncEAPage(props) {
+function AddTransPage(props) {
 	const [thirdPartyAcc, setThirdPartyAcc] = useState("");
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
+	const [description, setDescription] = useState("");
+	const [price, setPrice] = useState("");
+	const [date, setDate] = useState("");
 
 	return (
 		<View style={styles.background}>
 			<View style={styles.title}>
-				<Text>Add new E-commerce account</Text>
+				<Text>Add a new transaction</Text>
 			</View>
 			<View style={styles.body}>
 				<TextInput
 					style={styles.input}
-					onChangeText={setUsername}
-					value={username}
-					placeholder="Username"
+					onChangeText={setDescription}
+					value={description}
+					placeholder="Description"
 					keyboardType="default"
 				/>
 				<TextInput
 					style={styles.input}
-					onChangeText={setPassword}
-					value={password}
-					placeholder="Password"
-					keyboardType="default"
-					secureTextEntry={true}
+					onChangeText={setPrice}
+					value={price}
+					placeholder="Price"
+					keyboardType="numeric"
 				/>
-				<TouchableHighlight style={styles.submit}>
+				<TouchableHighlight
+					onPress={() => props.navigation.navigate("Home")}
+					style={styles.submit}
+				>
 					<View style={styles.submitView}>
 						<Text style={styles.submitText}>
 							Synchronize E-commerce
@@ -48,7 +51,7 @@ function SyncEAPage(props) {
 const styles = StyleSheet.create({
 	background: { flex: 1 },
 	title: { flex: 1, justifyContent: "center", alignItems: "center" },
-	body: { flex: 1, justifyContent: "center", alignItems: "center" },
+	body: { flex: 4, justifyContent: "center", alignItems: "center" },
 	input: {
 		width: "80%",
 		height: 40,
@@ -78,4 +81,5 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 	},
 });
-export default SyncEAPage;
+
+export default AddTransPage;
